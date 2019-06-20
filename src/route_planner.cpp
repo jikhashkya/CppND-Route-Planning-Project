@@ -38,21 +38,21 @@ void RoutePlanner::AStarSearch(){
   
   	RouteModel::Node *current_node = nullptr;
   	while(open_list.size() >0){
-      	// select the lowest f-value node
-    	current_node = NextNode();
-      	//find the distance between this and the end node
-      	//to check if we've reached the end node.
-      	if(current_node->distance(*end_node) == 0){
+      		// select the lowest f-value node
+    		current_node = NextNode();
+      		//find the distance between this and the end node
+      		//to check if we've reached the end node.
+      		if(current_node->distance(*end_node) == 0){
           	//if we did reach the end_node, construct the path
           	//from end to the start node.
         	m_Model.path = ConstructFinalPath(current_node);
           	return;
-        }else{
-          	//if end_node not reaced, keep adding neighbors
-          	// and exploring.
+        	}
+		//if end_node not reaced, keep adding neighbors
+        	// and exploring.
         	AddNeighbors(current_node);
         }
-    }
+	return ;
 }
 
 
